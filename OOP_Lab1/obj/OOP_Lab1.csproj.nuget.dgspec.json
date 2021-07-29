@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jiroo\\OneDrive - Polytechnic University of the Philippines\\SCHOOLING\\PUP BSCpE School Supplies\\Year1_Sem2\\OOProgramming\\Laboratory\\Lab1-Ch2\\New folder\\OOP_Lab1\\OOP_Lab1\\OOP_Lab1.csproj": {}
+    "C:\\Users\\jiroo\\OneDrive - Polytechnic University of the Philippines\\SCHOOLING\\PUP BSCpE School Supplies\\Year1_Sem2\\OOProgramming\\Laboratory\\Lab1-Ch2\\OOP_Laboratory\\OOP_Lab1\\OOP_Lab1\\OOP_Lab1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jiroo\\OneDrive - Polytechnic University of the Philippines\\SCHOOLING\\PUP BSCpE School Supplies\\Year1_Sem2\\OOProgramming\\Laboratory\\Lab1-Ch2\\New folder\\OOP_Lab1\\OOP_Lab1\\OOP_Lab1.csproj": {
+    "C:\\Users\\jiroo\\OneDrive - Polytechnic University of the Philippines\\SCHOOLING\\PUP BSCpE School Supplies\\Year1_Sem2\\OOProgramming\\Laboratory\\Lab1-Ch2\\OOP_Laboratory\\OOP_Lab1\\OOP_Lab1\\OOP_Lab1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jiroo\\OneDrive - Polytechnic University of the Philippines\\SCHOOLING\\PUP BSCpE School Supplies\\Year1_Sem2\\OOProgramming\\Laboratory\\Lab1-Ch2\\New folder\\OOP_Lab1\\OOP_Lab1\\OOP_Lab1.csproj",
+        "projectUniqueName": "C:\\Users\\jiroo\\OneDrive - Polytechnic University of the Philippines\\SCHOOLING\\PUP BSCpE School Supplies\\Year1_Sem2\\OOProgramming\\Laboratory\\Lab1-Ch2\\OOP_Laboratory\\OOP_Lab1\\OOP_Lab1\\OOP_Lab1.csproj",
         "projectName": "OOP_Lab1",
-        "projectPath": "C:\\Users\\jiroo\\OneDrive - Polytechnic University of the Philippines\\SCHOOLING\\PUP BSCpE School Supplies\\Year1_Sem2\\OOProgramming\\Laboratory\\Lab1-Ch2\\New folder\\OOP_Lab1\\OOP_Lab1\\OOP_Lab1.csproj",
+        "projectPath": "C:\\Users\\jiroo\\OneDrive - Polytechnic University of the Philippines\\SCHOOLING\\PUP BSCpE School Supplies\\Year1_Sem2\\OOProgramming\\Laboratory\\Lab1-Ch2\\OOP_Laboratory\\OOP_Lab1\\OOP_Lab1\\OOP_Lab1.csproj",
         "packagesPath": "C:\\Users\\jiroo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jiroo\\OneDrive - Polytechnic University of the Philippines\\SCHOOLING\\PUP BSCpE School Supplies\\Year1_Sem2\\OOProgramming\\Laboratory\\Lab1-Ch2\\New folder\\OOP_Lab1\\OOP_Lab1\\obj\\",
+        "outputPath": "C:\\Users\\jiroo\\OneDrive - Polytechnic University of the Philippines\\SCHOOLING\\PUP BSCpE School Supplies\\Year1_Sem2\\OOProgramming\\Laboratory\\Lab1-Ch2\\OOP_Laboratory\\OOP_Lab1\\OOP_Lab1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jiroo\\AppData\\Roaming\\NuGet\\NuGet.Config",
