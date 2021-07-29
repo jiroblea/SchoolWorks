@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\jiroo\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\jiroo\\.nuget\\packages"
+    ]
+  }
+}
