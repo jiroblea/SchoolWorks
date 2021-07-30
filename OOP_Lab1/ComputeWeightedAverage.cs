@@ -14,21 +14,21 @@ namespace OOP_Lab1
         public int finalExam;
 
         // weights
-        const double WEIGHTOFHOMEWORK = 0.10;
-        const double WEIGHTOFPROJECTS = 0.35;
-        const double WEIGHTOFQUIZZES = 0.10;
-        const double WEIGHTOFEXAMS = 0.30;
-        const double WEIGHTOFFINALEXAM = 0.15;
+        const double WEIGHT_OF_HOMEWORK = 0.10;
+        const double WEIGHT_OF_PROJECTS = 0.35;
+        const double WEIGHT_OF_QUIZZES = 0.10;
+        const double WEIGHT_OF_EXAMS = 0.30;
+        const double WEIGHT_OF_FINAL_EXAM = 0.15;
 
         public double WeightedScores()
         {
-            double weightedScores = (homework * WEIGHTOFHOMEWORK) + (projects * WEIGHTOFPROJECTS) + (quizzes * WEIGHTOFPROJECTS) + (exams * WEIGHTOFEXAMS) + (finalExam * WEIGHTOFFINALEXAM);
+            double weightedScores = (homework * WEIGHT_OF_HOMEWORK) + (projects * WEIGHT_OF_PROJECTS) + (quizzes * WEIGHT_OF_PROJECTS) + (exams * WEIGHT_OF_EXAMS) + (finalExam * WEIGHT_OF_FINAL_EXAM);
             return weightedScores;
         }
 
         public double TotalWeight()
         {
-            double totalWeight = Math.Round(WEIGHTOFHOMEWORK + WEIGHTOFPROJECTS + WEIGHTOFQUIZZES + WEIGHTOFEXAMS + WEIGHTOFFINALEXAM);
+            double totalWeight = Math.Round(WEIGHT_OF_HOMEWORK + WEIGHT_OF_PROJECTS + WEIGHT_OF_QUIZZES + WEIGHT_OF_EXAMS + WEIGHT_OF_FINAL_EXAM);
             return totalWeight;
         }
 

@@ -48,6 +48,7 @@ namespace OOP_Lab1
             average1.score4 = 21;
             average1.score5 = 45;
 
+            Console.ReadLine();
             Console.WriteLine("\nOOP | Laboratory 1 | Chapter 2 | Exercise 6");
             average1.DisplayResults();
             Console.WriteLine("Time Stamp\t: " + timeStamp.ToString("F"));
@@ -71,6 +72,7 @@ namespace OOP_Lab1
 
             change1.change = 0.92;
 
+            Console.ReadLine();
             Console.WriteLine("\nOOP | Laboratory 1 | Chapter 2 | Exercise 7");
             change1.DisplayResults();
             Console.WriteLine("Time Stamp\t\t: " + timeStamp.ToString("F"));
@@ -94,6 +96,7 @@ namespace OOP_Lab1
             weightedAverage1.exams = 75;
             weightedAverage1.finalExam = 80;
 
+            Console.ReadLine();
             Console.WriteLine("\nOOP | Laboratory 1 | Chapter 2 | Exercise 8");
             weightedAverage1.DisplayResults();
             Console.WriteLine("Time Stamp\t\t: " + timeStamp.ToString("F"));
@@ -106,6 +109,7 @@ namespace OOP_Lab1
             moneyToReceive1.amountOfBarsInEachCase = 100;
             moneyToReceive1.percentRequiredToGive = 0.10;
 
+            Console.ReadLine();
             Console.WriteLine("\nOOP | Laboratory 1 | Chapter 2 | Exercise 9");
             moneyToReceive1.DisplayResults();
             Console.WriteLine("Time Stamp\t\t\t: " + timeStamp.ToString("F"));
@@ -118,7 +122,8 @@ namespace OOP_Lab1
             pricePerPound1.pricePerIndicatedGram = 2.09;
             pricePerPound1.indicatedGrams = 100;
 
-            Console.WriteLine("\nOOP | Laboratory 1 | Chapter 2 | Exercise 9");
+            Console.ReadLine();
+            Console.WriteLine("\nOOP | Laboratory 1 | Chapter 2 | Exercise 10");
             pricePerPound1.DisplayResults();
             Console.WriteLine("Time Stamp\t: " + timeStamp.ToString("F"));
         }
