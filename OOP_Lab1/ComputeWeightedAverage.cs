@@ -22,7 +22,7 @@ namespace OOP_Lab1
 
         public double WeightedScores()
         {
-            double weightedScores = (homework * WEIGHT_OF_HOMEWORK) + (projects * WEIGHT_OF_PROJECTS) + (quizzes * WEIGHT_OF_PROJECTS) + (exams * WEIGHT_OF_EXAMS) + (finalExam * WEIGHT_OF_FINAL_EXAM);
+            double weightedScores = (homework * WEIGHT_OF_HOMEWORK) + (projects * WEIGHT_OF_PROJECTS) + (quizzes * WEIGHT_OF_QUIZZES) + (exams * WEIGHT_OF_EXAMS) + (finalExam * WEIGHT_OF_FINAL_EXAM);
             return weightedScores;
         }
 
@@ -45,7 +45,7 @@ namespace OOP_Lab1
             Console.WriteLine("Quizzes\t\t\t: " + quizzes);
             Console.WriteLine("Exams\t\t\t: " + exams);
             Console.WriteLine("Final Exam\t\t: " + finalExam);
-            Console.WriteLine("Weigthed Average\t: " + WeightedAverage());
+            Console.WriteLine("Weighted Average\t: " + WeightedAverage());
         }
     }
 }

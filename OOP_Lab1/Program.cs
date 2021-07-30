@@ -101,6 +101,19 @@ namespace OOP_Lab1
             weightedAverage1.DisplayResults();
             Console.WriteLine("Time Stamp\t\t: " + timeStamp.ToString("F"));
 
+            // new object
+            ComputeWeightedAverage weightedAverage2 = new ComputeWeightedAverage();
+
+            weightedAverage2.homework = 87;
+            weightedAverage2.projects = 85;
+            weightedAverage2.quizzes = 70;
+            weightedAverage2.exams = 90;
+            weightedAverage2.finalExam = 95;
+
+            Console.WriteLine("");
+            weightedAverage2.DisplayResults();
+            Console.WriteLine("Time Stamp\t\t: " + timeStamp.ToString("F"));
+
 
             // OOP Lab 1 Problem 9
             ComputeMoneyToReceive moneyToReceive1 = new ComputeMoneyToReceive();
