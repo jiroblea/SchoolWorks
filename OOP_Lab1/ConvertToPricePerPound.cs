@@ -12,11 +12,11 @@ namespace OOP_Lab1
         public double indicatedGrams;
 
         // conversion: 1 lb = 453.59237 g
-        const double POUNDINGRAMS = 453.59237;
+        const double POUND_IN_GRAMS = 453.59237;
 
         public double PricePerPound()
         {
-            double priceInPounds = (pricePerIndicatedGram * POUNDINGRAMS) / indicatedGrams;
+            double priceInPounds = (pricePerIndicatedGram * POUND_IN_GRAMS) / indicatedGrams;
             return priceInPounds;
         }
 

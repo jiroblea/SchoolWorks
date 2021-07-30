@@ -6,7 +6,7 @@ namespace OOP_Lab1
 {
     class ComputeAverageScore
     {
-        const int AMOUNTOFSCORE = 5;
+        const int AMOUNT_OF_SCORE = 5;
         public int score1;
         public int score2;
         public int score3;
@@ -15,7 +15,7 @@ namespace OOP_Lab1
 
         public double Average()
         {
-            double average = (score1 + score2 + score3 + score4 + score5) / AMOUNTOFSCORE;
+            double average = (score1 + score2 + score3 + score4 + score5) / AMOUNT_OF_SCORE;
             double roundedAverage = Math.Ceiling(average);
             return roundedAverage;
         }
