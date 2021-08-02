@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jiroo\\OneDrive - Polytechnic University of the Philippines\\SCHOOLING\\PUP BSCpE School Supplies\\Year1_Sem2\\OOProgramming\\Laboratory\\jiroblea\\Schoolworks\\OOP_Lab1\\OOP_Lab1.csproj",
-      "projectName": "OOP_Lab1",
-      "projectPath": "C:\\Users\\jiroo\\OneDrive - Polytechnic University of the Philippines\\SCHOOLING\\PUP BSCpE School Supplies\\Year1_Sem2\\OOProgramming\\Laboratory\\jiroblea\\Schoolworks\\OOP_Lab1\\OOP_Lab1.csproj",
+      "projectUniqueName": "C:\\Users\\jiroo\\OneDrive - Polytechnic University of the Philippines\\SCHOOLING\\PUP BSCpE School Supplies\\Year1_Sem2\\OOProgramming\\Laboratory\\jiroblea\\Schoolworks\\OOP_Lab2_\\OOP_Lab2_\\OOP_Lab2_.csproj",
+      "projectName": "OOP_Lab2_",
+      "projectPath": "C:\\Users\\jiroo\\OneDrive - Polytechnic University of the Philippines\\SCHOOLING\\PUP BSCpE School Supplies\\Year1_Sem2\\OOProgramming\\Laboratory\\jiroblea\\Schoolworks\\OOP_Lab2_\\OOP_Lab2_\\OOP_Lab2_.csproj",
       "packagesPath": "C:\\Users\\jiroo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jiroo\\OneDrive - Polytechnic University of the Philippines\\SCHOOLING\\PUP BSCpE School Supplies\\Year1_Sem2\\OOProgramming\\Laboratory\\jiroblea\\Schoolworks\\OOP_Lab1\\obj\\",
+      "outputPath": "C:\\Users\\jiroo\\OneDrive - Polytechnic University of the Philippines\\SCHOOLING\\PUP BSCpE School Supplies\\Year1_Sem2\\OOProgramming\\Laboratory\\jiroblea\\Schoolworks\\OOP_Lab2_\\OOP_Lab2_\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jiroo\\AppData\\Roaming\\NuGet\\NuGet.Config",
