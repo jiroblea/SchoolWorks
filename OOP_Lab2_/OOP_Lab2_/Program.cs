@@ -43,14 +43,33 @@ namespace OOP_Lab2_
 
 
         // OOP-Lab2-Num8
+        public static double GetNumOfCases()
+        {
+            Console.WriteLine("This program calculates the gross profit of your sales project,\nafter deducting your expenses and payment to the Student Government Association from it.\n");
+            Console.WriteLine("Enter the number of cases sold: ");
+            string input = Console.ReadLine();
+            double numOfCases = Convert.ToDouble(input);
+            return numOfCases;
+        }
 
+
+        // OOP-Lab2-Num9
+
+
+        public static double GetSalePrice()
+        {
+            Console.WriteLine("Enter the sale price per granola bar: ");
+            string input = Console.ReadLine();
+            double salePrice = Convert.ToDouble(input);
+            return salePrice;
+        }
 
 
         static void Main(string[] args)
         {
             DateTime timeStamp = DateTime.Now;
 
-            
+            /*
             // OOP-Lab2-Num5
             ConvertFahrenheit fahrenheit1 = new ConvertFahrenheit();
 
@@ -78,9 +97,19 @@ namespace OOP_Lab2_
             tip1.DisplayResults();
 
             Console.WriteLine("Time Stamp\t\t\t: " + timeStamp.ToString("F"));
+            */
 
-            
             // OOP-Lab2-Num8
+            CalculateProfit profit1 = new CalculateProfit();
+
+            profit1.numOfCases = GetNumOfCases();
+            profit1.salePrice = GetSalePrice();
+            profit1.DisplayResults();
+
+            Console.WriteLine("Time Stamp\t\t\t\t\t: " + timeStamp.ToString("F"));
+
+
+            // OOP-Lab2-Num9
 
         }
     }
