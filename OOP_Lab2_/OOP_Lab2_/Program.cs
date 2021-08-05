@@ -4,6 +4,7 @@ namespace OOP_Lab2_
 {
     class Program
     {
+        // OOP-Lab2-Num5
         public static double GetTemperature()
         {
             Console.WriteLine("Enter temperature in Fahrenheit:");
@@ -16,6 +17,7 @@ namespace OOP_Lab2_
         {
             DateTime timeStamp = DateTime.Now;
 
+            // OOP-Lab2-Num5
             ConvertFahrenheit fahrenheit1 = new ConvertFahrenheit();
 
             fahrenheit1.temperature = GetTemperature();
