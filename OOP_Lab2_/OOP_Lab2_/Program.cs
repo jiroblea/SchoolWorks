@@ -78,11 +78,28 @@ namespace OOP_Lab2_
         }
 
 
+        // OOP-Lab2-Num10
+        public static string GetAddress()
+        {
+            Console.WriteLine("Enter property address: ");
+            string address = Console.ReadLine();
+            return address;
+        }
+
+        public static double GetPriorYearValue()
+        {
+            Console.WriteLine("Enter prior year's value: ");
+            string input = Console.ReadLine();
+            double priorYearValue = Convert.ToDouble(input);
+            return priorYearValue;
+        }
+
+
         static void Main(string[] args)
         {
             DateTime timeStamp = DateTime.Now;
 
-            /*
+            
             // OOP-Lab2-Num5
             ConvertFahrenheit fahrenheit1 = new ConvertFahrenheit();
 
@@ -91,7 +108,7 @@ namespace OOP_Lab2_
 
             Console.WriteLine("Time Stamp\t: " + timeStamp.ToString("F"));
 
-
+            Console.ReadLine();
             // OOP-Lab2-Num6
             ConvertMeters meter1 = new ConvertMeters();
 
@@ -100,7 +117,7 @@ namespace OOP_Lab2_
 
             Console.WriteLine("Time Stamp\t: " + timeStamp.ToString("F"));
 
-
+            Console.ReadLine();
             // OOP-Lab2-Num7
             CalculateTip tip1 = new CalculateTip();
 
@@ -110,8 +127,8 @@ namespace OOP_Lab2_
             tip1.DisplayResults();
 
             Console.WriteLine("Time Stamp\t\t\t: " + timeStamp.ToString("F"));
-            */
-
+            
+            Console.ReadLine();
             // OOP-Lab2-Num8
             CalculateProfit profit1 = new CalculateProfit();
 
@@ -120,8 +137,8 @@ namespace OOP_Lab2_
             profit1.DisplayResults();
 
             Console.WriteLine("Time Stamp\t\t\t\t\t: " + timeStamp.ToString("F"));
-            
 
+            Console.ReadLine();
             // OOP-Lab2-Num9
             TakeHomePay employee1 = new TakeHomePay();
 
@@ -131,6 +148,16 @@ namespace OOP_Lab2_
             employee1.DisplayResults();
 
             Console.WriteLine("Time Stamp\t\t: " + timeStamp.ToString("F"));
+
+            Console.ReadLine();
+            // OOP-Lab2-Num10
+            CalculateProposedTax propertyTax1 = new CalculateProposedTax();
+
+            propertyTax1.address = GetAddress();
+            propertyTax1.priorYearValue = GetPriorYearValue();
+            propertyTax1.DisplayResults();
+
+            Console.WriteLine("Time Stamp\t\t\t: " + timeStamp.ToString("F"));
         }
     }
 }

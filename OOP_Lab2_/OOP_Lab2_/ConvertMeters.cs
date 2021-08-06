@@ -28,7 +28,7 @@ namespace OOP_Lab2_
 
         public void DisplayResult()
         {
-            Console.WriteLine("Original value\t: " + meters);
+            Console.WriteLine("Original value\t: " + meters + " meter[s]");
             Console.WriteLine("Converted value\t: " + CalculateFeet() + " feet and " + CalculateNewInches() + " inch[es]");
         }
     }
