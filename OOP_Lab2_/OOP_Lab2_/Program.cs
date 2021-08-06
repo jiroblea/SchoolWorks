@@ -52,16 +52,29 @@ namespace OOP_Lab2_
             return numOfCases;
         }
 
-
-        // OOP-Lab2-Num9
-
-
         public static double GetSalePrice()
         {
             Console.WriteLine("Enter the sale price per granola bar: ");
             string input = Console.ReadLine();
             double salePrice = Convert.ToDouble(input);
             return salePrice;
+        }
+
+
+        // OOP-Lab2-Num9
+        public static string GetNameEmployee()
+        {
+            Console.WriteLine("Enter your LAST NAME, FIRST NAME and MIDDLE INITIAL: ");
+            string nameEmployee = Console.ReadLine();
+            return nameEmployee;
+        }
+
+        public static double GetSalesAmnt()
+        {
+            Console.WriteLine("Enter your Sales Amount: ");
+            string input = Console.ReadLine();
+            double salesAmnt = Convert.ToDouble(input);
+            return salesAmnt;
         }
 
 
@@ -107,10 +120,17 @@ namespace OOP_Lab2_
             profit1.DisplayResults();
 
             Console.WriteLine("Time Stamp\t\t\t\t\t: " + timeStamp.ToString("F"));
-
+            
 
             // OOP-Lab2-Num9
+            TakeHomePay employee1 = new TakeHomePay();
 
+            employee1.DisplayInfo();
+            employee1.nameEmployee = GetNameEmployee();
+            employee1.salesAmnt = GetSalesAmnt();
+            employee1.DisplayResults();
+
+            Console.WriteLine("Time Stamp\t\t: " + timeStamp.ToString("F"));
         }
     }
 }
