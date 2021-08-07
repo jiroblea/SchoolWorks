@@ -1,2 +1,2 @@
 # Schoolworks
-contains files for OOP-Laboratory
+contain files for OOP-Laboratory
