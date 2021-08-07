@@ -30,9 +30,9 @@ namespace OOP_Lab2_
         public void DisplayResults()
         {
             Console.WriteLine("Property address\t\t: " + address);
-            Console.WriteLine("Prior year's assessed value\t: " + priorYearValue);
-            Console.WriteLine("New assessed value\t\t: " + Math.Round(NewAssessedValue(), 2));
-            Console.WriteLine("Proposed tax for current year\t: " + Math.Round(CurrentProposedTax(), 2));
+            Console.WriteLine("Prior year's assessed value\t: $" + priorYearValue);
+            Console.WriteLine("New assessed value\t\t: $" + Math.Round(NewAssessedValue(), 2));
+            Console.WriteLine("Proposed tax for current year\t: $" + Math.Round(CurrentProposedTax(), 2));
         }
     }
 }

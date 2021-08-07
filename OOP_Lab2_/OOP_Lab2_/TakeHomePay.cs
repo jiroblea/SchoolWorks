@@ -55,13 +55,13 @@ namespace OOP_Lab2_
         public void DisplayResults()
         {
             Console.WriteLine("Employee name\t\t: " + nameEmployee);
-            Console.WriteLine("Sales amount\t\t: " + salesAmnt);
-            Console.WriteLine("Original payment\t: " + Math.Round(GetPaymentEmployee(), 2));
+            Console.WriteLine("Sales amount\t\t: $" + salesAmnt);
+            Console.WriteLine("Original payment\t: $" + Math.Round(GetPaymentEmployee(), 2));
             Console.WriteLine("\nThe following are tax deductions: " );
-            Console.WriteLine("Federal tax\t\t: " + Math.Round(GetFedTax(), 2));
-            Console.WriteLine("Retirement contribution\t: " + Math.Round(GetContribution(), 2));
-            Console.WriteLine("Social security tax\t: " + Math.Round(GetSocSecTax(), 2));
-            Console.WriteLine("\nTake-home pay\t\t: " + Math.Round(GetTakeHomePay(), 2));
+            Console.WriteLine("Federal tax\t\t: $" + Math.Round(GetFedTax(), 2));
+            Console.WriteLine("Retirement contribution\t: $" + Math.Round(GetContribution(), 2));
+            Console.WriteLine("Social security tax\t: $" + Math.Round(GetSocSecTax(), 2));
+            Console.WriteLine("\nTake-home pay\t\t: $" + Math.Round(GetTakeHomePay(), 2));
         }
     }
 }

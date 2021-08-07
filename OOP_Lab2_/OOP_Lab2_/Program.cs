@@ -107,7 +107,7 @@ namespace OOP_Lab2_
             fahrenheit1.DisplayResults();
 
             Console.WriteLine("Time Stamp\t: " + timeStamp.ToString("F"));
-
+            
             Console.ReadLine();
             // OOP-Lab2-Num6
             ConvertMeters meter1 = new ConvertMeters();
@@ -116,7 +116,7 @@ namespace OOP_Lab2_
             meter1.DisplayResult();
 
             Console.WriteLine("Time Stamp\t: " + timeStamp.ToString("F"));
-
+            
             Console.ReadLine();
             // OOP-Lab2-Num7
             CalculateTip tip1 = new CalculateTip();
@@ -137,7 +137,7 @@ namespace OOP_Lab2_
             profit1.DisplayResults();
 
             Console.WriteLine("Time Stamp\t\t\t\t\t: " + timeStamp.ToString("F"));
-
+            
             Console.ReadLine();
             // OOP-Lab2-Num9
             TakeHomePay employee1 = new TakeHomePay();
@@ -148,7 +148,7 @@ namespace OOP_Lab2_
             employee1.DisplayResults();
 
             Console.WriteLine("Time Stamp\t\t: " + timeStamp.ToString("F"));
-
+            
             Console.ReadLine();
             // OOP-Lab2-Num10
             CalculateProposedTax propertyTax1 = new CalculateProposedTax();
