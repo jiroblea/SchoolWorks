@@ -36,13 +36,6 @@ def sort_ten_digits():
 
         digits_list2 = digits_list  # second list for selection sort
 
-        # sort the 10 digits in ascending order
-        # for i in range(len(digits_list)):
-        #     for j in range(len(digits_list) - 1):
-        #         if digits_list[j] > digits_list[j + 1]:     # if the element on-hand is greater than the element next to it:
-        #             digits_list[j], digits_list[j + 1] = digits_list[j + 1], digits_list[j]     # they exchange places
-        # sorted_list = digits_list
-
         # sort the 10 digits using selection sort
         sorted_list2 = []
         for j in range(len(digits_list2)):
