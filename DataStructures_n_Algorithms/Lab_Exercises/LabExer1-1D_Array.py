@@ -1,5 +1,5 @@
 # Student: Junius Iosif R. Oblea
-# Program: BS Computer Engineer
+# Program: BS Computer Engineering
 # Subject: CMPE 30052 Data Structures and Algorithms 
 # Laboratory Exercise No. 1
 
