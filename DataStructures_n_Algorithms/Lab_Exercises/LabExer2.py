@@ -9,8 +9,6 @@
 # - Any number divided by zero will result to undefined
 # - Use int data type only for all variables declared
 
-from typing import SupportsBytes
-
 
 def basic_math_operation():
     def addition(num1: int, num2: int) -> int:
@@ -25,20 +23,17 @@ def basic_math_operation():
     def division(num1: int, num2: int): 
         """TODO: should not return float if possible"""
         try:
-            if type(num1 / num2) == int: 
-                return int(num1 / num2)
-            else:
-                raise ValueError
+            return num1 // num2
         except ZeroDivisionError:
             return "undefined!"
-        except ValueError:
-            return "{:.2f}".format(float(num1 / num2))
-
 
     def ask_number_input() -> tuple:
-        num1 = int(input("Enter first number: "))
-        num2 = int(input("Enter second number: "))
-        return num1, num2
+        try:
+            num1 = int(input("Enter first number: "))
+            num2 = int(input("Enter second number: "))
+            return num1, num2
+        except ValueError:
+            print("The program only accept integers.")
 
     while True:
         print("\n***********************\nMENU\n***********************")
@@ -54,24 +49,40 @@ def basic_math_operation():
             print("Thank you!")
             input("Press any key to continue...")
             break
+
         elif choice == "a":
             print("\nADDITION")
-            num = ask_number_input()
-            print("The sum is", addition(num[0], num[1]))
+            try:
+                num = ask_number_input()
+                print("The sum is", addition(num[0], num[1]))
+            except:
+                print("Try again.")
+
         elif choice == "s":
             print("\nSUBTRACTION")
-            num = ask_number_input()
-            print("The difference is", subtraction(num[0], num[1]))
+            try:
+                num = ask_number_input()
+                print("The difference is", subtraction(num[0], num[1]))
+            except:
+                print("Try again.")
+
         elif choice == "m":
             print("\nMULTIPLICATION")
-            num = ask_number_input()
-            print("The product is", multiplication(num[0], num[1]))
+            try:
+                num = ask_number_input()
+                print("The product is", multiplication(num[0], num[1]))
+            except:
+                print("Try again.")
+                
         elif choice == "d":
             print("\nDIVISION")
-            num = ask_number_input()
-            print("The quotient is", division(num[0], num[1]))
+            try:
+                num = ask_number_input()
+                print("The quotient is", division(num[0], num[1]))
+            except:
+                print("Try again.")
         else:
-            print("I don't know that. Teach me more.")
+            print("Choose only from the choices.")
 
 
 def main():
