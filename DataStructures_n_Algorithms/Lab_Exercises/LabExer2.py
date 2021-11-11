@@ -4,6 +4,10 @@
 # Laboratory Exercise No. 1
 
 import math
+from typing import Type
+
+def line():
+    return "-----------------------"
 
 # Problem 1
 # Create a program that will add, subtract, multiply and divide two numbers.
@@ -111,16 +115,43 @@ def compute_area():
             print("Thank you!")
             input("Press any key to continue...")
             break
+
         elif choice == "1":
             print("AREA OF SQUARE")
             print("-----------------------")
-            side = float(input("Enter the side of the square: "))
-            print(f"\nThe area is {area_of_square(side)} sq. units")
+            try:
+                side = float(input("Enter the side of the square: "))
+                print(f"\nThe area is {area_of_square(side)} sq. units")
+            except ValueError:
+                print("Try again. The program only accepts numbers.")
+
         elif choice == "2":
             print("AREA OF RECTANGLE")
             print("-----------------------")
-            len_wid = input("Enter the length and the width of the rectangle: ").split(" ")
-            print(f"\nThe area is {area_of_rectangle(float(len_wid[0]), float(len_wid[1]))} sq. units")
+            try: 
+                len_wid = input("Enter the length and the width of the rectangle: ").split(" ")
+                print(f"\nThe area is {area_of_rectangle(float(len_wid[0]), float(len_wid[1]))} sq. units")
+            except ValueError and IndexError:
+                print("Try again. The program only accepts two numbers.")
+
+        elif choice == "3":
+            print("AREA OF TRIANGLE")
+            print(line())
+            try: 
+                base_height = input("Enter the base and width of the triangle: ").split(" ")
+                print(f"\nThe area is {area_of_triangle(float(base_height[0]), float(base_height[1]))} sq. units")
+            except ValueError and IndexError:
+                print("Try again. The program only accepts two numbers.")
+
+        elif choice == "4":
+            print("AREA OF CIRCLE")
+            print(line())
+            try:
+                radius = float(input("Enter the radius: "))
+                print(f"\nThe area is {area_of_circle(radius)} sq. units")
+            except ValueError:
+                print("Try again. The program only accepts numbers.")
+
         else: 
             print("Choose only from the choices.")
 
