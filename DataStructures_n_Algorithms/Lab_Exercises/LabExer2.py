@@ -3,8 +3,7 @@
 # Subject: CMPE 30052 Data Structures and Algorithms 
 # Laboratory Exercise No. 1
 
-import math
-from typing import Type
+from math import pi
 
 def line():
     return "-----------------------"
@@ -97,7 +96,7 @@ def compute_area():
         return round((base * height) / 2, 2)
 
     def area_of_circle(radius: float) -> float:
-        return round(math.pi * (radius ** 2), 2)
+        return round(pi * (radius ** 2), 2)
 
     while True:
         print("\n***********************\nMENU\n***********************")
@@ -118,18 +117,20 @@ def compute_area():
 
         elif choice == "1":
             print("AREA OF SQUARE")
-            print("-----------------------")
+            print(line())
             try:
                 side = float(input("Enter the side of the square: "))
                 print(f"\nThe area is {area_of_square(side)} sq. units")
             except ValueError:
-                print("Try again. The program only accepts numbers.")
+                print("Try again. The program only accepts a number.")
 
         elif choice == "2":
             print("AREA OF RECTANGLE")
-            print("-----------------------")
+            print(line())
             try: 
                 len_wid = input("Enter the length and the width of the rectangle: ").split(" ")
+                if len(len_wid) != 2:
+                    raise IndexError
                 print(f"\nThe area is {area_of_rectangle(float(len_wid[0]), float(len_wid[1]))} sq. units")
             except ValueError and IndexError:
                 print("Try again. The program only accepts two numbers.")
@@ -138,7 +139,9 @@ def compute_area():
             print("AREA OF TRIANGLE")
             print(line())
             try: 
-                base_height = input("Enter the base and width of the triangle: ").split(" ")
+                base_height = input("Enter the base and height of the triangle: ").split(" ")
+                if len(base_height) != 2:
+                    raise IndexError
                 print(f"\nThe area is {area_of_triangle(float(base_height[0]), float(base_height[1]))} sq. units")
             except ValueError and IndexError:
                 print("Try again. The program only accepts two numbers.")
@@ -150,7 +153,7 @@ def compute_area():
                 radius = float(input("Enter the radius: "))
                 print(f"\nThe area is {area_of_circle(radius)} sq. units")
             except ValueError:
-                print("Try again. The program only accepts numbers.")
+                print("Try again. The program only accepts a number.")
 
         else: 
             print("Choose only from the choices.")
