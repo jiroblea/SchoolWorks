@@ -3,7 +3,7 @@
 # Subject: CMPE 30052 Data Structures and Algorithms 
 # Laboratory Exercise No. 1
 
-from math import pi
+from math import factorial, pi
 
 def line():
     return "-----------------------"
@@ -159,10 +159,40 @@ def compute_area():
             print("Choose only from the choices.")
 
 
+# Problem 3
+# Create a program that will compute the factorial of a given number.
+# - Use function to pass the value of the number input and to ...
+# ... pass the reference of the factorial value of the number
+
+def compute_factorial():
+    def find_factorial(number: int) -> int:
+        
+        factorial = number
+        while number > 1:
+            factorial *= (number - 1)
+            number -= 1
+
+        return factorial
+
+    while True:
+        try:
+            num = int(input("\nEnter a number: "))
+            print(f"The factorial of {num} is {find_factorial(num)}")
+        except Exception:
+            print("Only accepts an integer.")
+        
+        again = input("\nTry again (y/n)? ").lower()
+        if again == "n":
+            break
+
+
 def main():
-    print("Hello World!")
+    print("Problem 1")
     basic_math_operations()
+    print("\nProblem 2")
     compute_area()
+    print("\nProblem 3")
+    compute_factorial()
 
 
 if __name__ == "__main__":
