@@ -1,7 +1,7 @@
 # Student: Junius Iosif R. Oblea
 # Program: BS Computer Engineering
 # Subject: CMPE 30052 Data Structures and Algorithms 
-# Laboratory Exercise No. 1
+# Laboratory Exercise No. 2
 
 from math import pi
 
@@ -264,6 +264,13 @@ def arithmetic_calculator():
             print("Choose only from the choices.")
 
 
+# Problem 5
+# Create a program that will overload a function named linechar that display a line of characters.
+
+def linechar(char = "*", amount = 20):
+    print(char * amount)
+
+
 def main():
     print("Problem 1")
     basic_math_operations()
@@ -273,6 +280,11 @@ def main():
     compute_factorial()
     print("\nProblem 4")
     arithmetic_calculator()
+    print("\nProblem 5\n")
+    linechar()
+    linechar("@")
+    linechar(amount = 10)
+    linechar("#", 15)
 
 
 if __name__ == "__main__":
