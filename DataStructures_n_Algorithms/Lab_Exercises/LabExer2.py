@@ -3,10 +3,21 @@
 # Subject: CMPE 30052 Data Structures and Algorithms 
 # Laboratory Exercise No. 1
 
-from math import factorial, pi
+from math import pi
 
 def line():
     return "-----------------------"
+
+
+def know_num_type(number: float) -> (int | float):
+    """
+    Return the proper type of argument passed if it is really float or int.
+    """
+    if number % 1 == 0:
+        return int(number)
+    else:
+        return float(number)
+
 
 # Problem 1
 # Create a program that will add, subtract, multiply and divide two numbers.
@@ -26,7 +37,7 @@ def basic_math_operations():
 
     def division(num1: int, num2: int): 
         try:
-            return round(num1 / num2, 2)
+            return num1 / num2
         except ZeroDivisionError:
             return "undefined!"
 
@@ -44,7 +55,7 @@ def basic_math_operations():
             if fnctn == division and num[1] == 0:
                 print("Undefined!")
             else:
-                print(f"The {result_name} is", fnctn(num[0], num[1]))
+                print(f"The {result_name} is", round(know_num_type(fnctn(num[0], num[1])), 2))
         except:
             print("Try again.")
 
@@ -161,12 +172,11 @@ def compute_area():
 
 # Problem 3
 # Create a program that will compute the factorial of a given number.
-# - Use function to pass the value of the number input and to ...
-# ... pass the reference of the factorial value of the number
+# - Use function to pass the value of the number input and ...
+# ... to pass the reference of the factorial value of the number
 
 def compute_factorial():
     def find_factorial(number: int) -> int:
-        
         factorial = number
         while number > 1:
             factorial *= (number - 1)
@@ -183,7 +193,75 @@ def compute_factorial():
         
         again = input("\nTry again (y/n)? ").lower()
         if again == "n":
+            print("Thank you!")
+            print("Press any key to continue...")
             break
+
+
+# Problem 4
+# Create a simple arithmetic calculator that will add, subtract, multiply and divide two integer numbers.
+# - Use function to accept inputs for the two operands.
+
+def arithmetic_calculator():
+    def addition(num1: float, num2: float) -> float:
+        return num1 + num2
+
+    def subtraction(num1: float, num2: float) -> float:
+        return num1 - num2
+
+    def multiplication(num1: float, num2: float) -> float:
+        return num1 * num2
+
+    def division(num1: float, num2: float): 
+        try:
+            return round(num1 / num2, 2)
+        except ZeroDivisionError:
+            return "undefined!"
+
+    def ask_number_input() -> tuple:
+        """Function that accepts input for two operands."""
+        try:
+            num1 = float(input("Enter first number: "))
+            num2 = float(input("Enter second number: "))
+            return num1, num2
+        except ValueError:
+            print("The program only accept numbers.")
+
+    def display_output(result_name: str, fnctn):
+        try:
+            num = ask_number_input()
+            if fnctn == division and num[1] == 0:
+                print("Undefined!")
+            else:
+                print(f"The {result_name} is:", round(know_num_type(fnctn(num[0], num[1])), 2))
+        except:
+            print("Try again.")
+
+    while True:
+        print("\nPress 'x' to exit")
+        print("\nARITHMETIC CALCULATOR")
+        print(line())
+        print("[1] - Addition") 
+        print("[2] - Subtraction")
+        print("[3] - Multiplication")
+        print("[4] - Division")
+        print(line())
+
+        choice = input("Enter you choice: ").lower()
+        if choice == "x":
+            print("Thank you!")
+            input("Press any key to continue...")
+            break
+        elif choice == "1":
+            display_output("sum", addition)
+        elif choice == "2":
+            display_output("difference", subtraction)
+        elif choice == "3":
+            display_output("product", multiplication)
+        elif choice == "4":
+            display_output("quotient", division)
+        else:
+            print("Choose only from the choices.")
 
 
 def main():
@@ -193,6 +271,8 @@ def main():
     compute_area()
     print("\nProblem 3")
     compute_factorial()
+    print("\nProblem 4")
+    arithmetic_calculator()
 
 
 if __name__ == "__main__":
