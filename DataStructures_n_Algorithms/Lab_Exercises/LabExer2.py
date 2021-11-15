@@ -3,7 +3,7 @@
 # Subject: CMPE 30052 Data Structures and Algorithms 
 # Laboratory Exercise No. 2
 
-from math import pi
+from math import e, pi
 
 def line():
     return "-----------------------"
@@ -19,10 +19,14 @@ def know_num_type(number: float) -> (int | float):
         return float(number)
 
 def try_again():
+    """
+    Located in while True loop.
+    Asks the user if they want to try again the program inside the while loop.
+    """
     again = input("\nTry again (y/n)? ").lower()
     if again == "n":
         print("Thank you!")
-        print("Press any key to continue...")
+        input("Press any key to continue...")
         return False
 
 
@@ -198,7 +202,7 @@ def compute_factorial():
         except Exception:
             print("Only accepts an integer.")
         
-        if try_again == False:
+        if try_again() == False:
             break
 
 
@@ -262,7 +266,7 @@ def arithmetic_calculator():
         else:
             print("Choose only from the choices.")
 
-        if try_again == False:
+        if try_again() == False:
             break
 
 
@@ -299,10 +303,61 @@ def sum_odd_numbers():
         for i in numbers:
             try:
                 numbers_int.append(int(i))
-            except:
-                print("One of the inputs were not an integer number")
+            except ValueError as e:
+                print(f"error: {e}")
 
         print("The sum of all odd numbers is", sum_of_odds(numbers_int))
+
+        if try_again() == False:
+            break
+
+# Problem 7
+# Create a program that will add two numbers, three numbers and four numbers. Use function overloading named add. 
+# - Use two arguments for adding two numbers
+# - Use three arguments for adding three numbers
+# - Use array with size 4 for adding four numbers
+# - The function add will return the value of the sum of the numbers
+
+def add(num1 = 0, num2 = 0, num3 = 0, num4 = 0):
+    try:
+        return num1 + num2 + num3 + num4
+    except ValueError as e:
+        print("error:", e)
+
+def prob_7():
+    """
+    To get the input of users and display the results of add() function.
+    """
+    def convert_to_float(string_list: list):
+        num_list = []
+        for i in string_list:
+            try:
+                num_list.append(float(i))
+            except ValueError:
+                print(f"{i} is not a number.")
+        return num_list
+
+    while True:
+        try:
+            two_num = input("Enter two numbers: ").split(" ")
+            two_list = convert_to_float(two_num)
+            print("The sum is:", know_num_type(add(*two_list)))
+        except Exception as e:
+            print(e)
+
+        try:
+            three_num  = input("Enter three numbers: ").split(" ")
+            three_list = convert_to_float(three_num)
+            print("The sum is:", know_num_type(add(*three_list)))
+        except Exception as e:
+            print(e)
+
+        try:
+            four_num = input("Enter four numbers: ").split(" ")
+            four_list = convert_to_float(four_num)
+            print("The sum is:", know_num_type(add(*four_list)))
+        except Exception as e:
+            print(e)
 
         if try_again() == False:
             break
@@ -324,6 +379,8 @@ def main():
     linechar("#", 15)
     print("\nProblem 6")
     sum_odd_numbers()
+    print("\nProblem 7\n")
+    prob_7()
 
 
 if __name__ == "__main__":
