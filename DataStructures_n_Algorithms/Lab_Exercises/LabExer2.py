@@ -18,6 +18,13 @@ def know_num_type(number: float) -> (int | float):
     else:
         return float(number)
 
+def try_again():
+    again = input("\nTry again (y/n)? ").lower()
+    if again == "n":
+        print("Thank you!")
+        print("Press any key to continue...")
+        return False
+
 
 # Problem 1
 # Create a program that will add, subtract, multiply and divide two numbers.
@@ -191,10 +198,7 @@ def compute_factorial():
         except Exception:
             print("Only accepts an integer.")
         
-        again = input("\nTry again (y/n)? ").lower()
-        if again == "n":
-            print("Thank you!")
-            print("Press any key to continue...")
+        if try_again == False:
             break
 
 
@@ -233,12 +237,11 @@ def arithmetic_calculator():
             if fnctn == division and num[1] == 0:
                 print("Undefined!")
             else:
-                print(f"The {result_name} is:", round(know_num_type(fnctn(num[0], num[1])), 2))
+                print(f"The {result_name} is:", round(know_num_type(fnctn(*num)), 2))   # uses splat operator to call elements in num
         except:
             print("Try again.")
 
     while True:
-        print("\nPress 'x' to exit")
         print("\nARITHMETIC CALCULATOR")
         print(line())
         print("[1] - Addition") 
@@ -248,11 +251,7 @@ def arithmetic_calculator():
         print(line())
 
         choice = input("Enter you choice: ").lower()
-        if choice == "x":
-            print("Thank you!")
-            input("Press any key to continue...")
-            break
-        elif choice == "1":
+        if choice == "1":
             display_output("sum", addition)
         elif choice == "2":
             display_output("difference", subtraction)
@@ -263,12 +262,50 @@ def arithmetic_calculator():
         else:
             print("Choose only from the choices.")
 
+        if try_again == False:
+            break
+
 
 # Problem 5
 # Create a program that will overload a function named linechar that display a line of characters.
 
 def linechar(char = "*", amount = 20):
     print(char * amount)
+
+
+# Problem 6
+# Create a program that will ask the user to enter ten numbers and get the sum of all odd numbers. 
+# - The numbers will be stored in array
+# - The array value will be pass as argument to the function
+
+def sum_odd_numbers():
+
+    # function that get the sum of odd numbers
+    def sum_of_odds(num_list: list):
+        result = 0
+        for i in num_list:
+            if i % 2 == 0:
+                continue
+            elif (i + 1) % 2 == 0: 
+                result += i
+        
+        return result
+
+    while True:
+        numbers = input("\nEnter 10 numbers: ").split(" ")    # asks user for 10 numbers
+
+        # numbers will be stored in an array
+        numbers_int = []
+        for i in numbers:
+            try:
+                numbers_int.append(int(i))
+            except:
+                print("One of the inputs were not an integer number")
+
+        print("The sum of all odd numbers is", sum_of_odds(numbers_int))
+
+        if try_again() == False:
+            break
 
 
 def main():
@@ -285,6 +322,8 @@ def main():
     linechar("@")
     linechar(amount = 10)
     linechar("#", 15)
+    print("\nProblem 6")
+    sum_odd_numbers()
 
 
 if __name__ == "__main__":
