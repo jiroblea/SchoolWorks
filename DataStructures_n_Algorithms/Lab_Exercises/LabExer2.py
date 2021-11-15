@@ -387,14 +387,10 @@ def get_substring_value():
             substring(substring_list, start_index)
 
             print(f"\nfunction substring(str, {start_index}, {end_index}):")
-            if start_index > end_index or  start_index < 0:
-                raise Exception
             substring(substring_list, start_index, end_index + 1)
 
         except ValueError:
             print("The program only accepts integers.")
-        except Exception:
-            print("Error: The value of start index is either greater than end index or lower than zero.")
 
         if try_again() == False:
             break
