@@ -324,7 +324,7 @@ def add(num1 = 0, num2 = 0, num3 = 0, num4 = 0):
     except ValueError as e:
         print("error:", e)
 
-def prob_7():
+def get_and_display_add():
     """
     To get the input of users and display the results of add() function.
     """
@@ -363,6 +363,43 @@ def prob_7():
             break
 
 
+# Problem 8
+# Create a program that will overload a function named substring. The function will ask the user to 
+# enter the index range of the substring inclusive. Using the function defined, the program will display the 
+# whole string value, the substring given the start index, and the substring given the start and last index.
+
+def substring(string: str, start = 0, end = None):
+    print(string[start:end])
+
+def get_substring_value():
+    while True:
+        substring_list = input("\nOriginal string value:\n")
+        print(f"String length: {len(substring_list)}")
+        
+        try: 
+            start_index = int(input("\nEnter start index: "))
+            end_index = int(input("Enter end index: "))
+
+            print("\nfunction substring(str):")
+            substring(substring_list)
+
+            print(f"\nfunction substring(str, {start_index}):")
+            substring(substring_list, start_index)
+
+            print(f"\nfunction substring(str, {start_index}, {end_index}):")
+            if start_index > end_index or  start_index < 0:
+                raise Exception
+            substring(substring_list, start_index, end_index + 1)
+
+        except ValueError:
+            print("The program only accepts integers.")
+        except Exception:
+            print("Error: The value of start index is either greater than end index or lower than zero.")
+
+        if try_again() == False:
+            break
+
+
 def main():
     print("Problem 1")
     basic_math_operations()
@@ -380,7 +417,9 @@ def main():
     print("\nProblem 6")
     sum_odd_numbers()
     print("\nProblem 7\n")
-    prob_7()
+    get_and_display_add()
+    print("\nProblem 8")
+    get_substring_value()
 
 
 if __name__ == "__main__":
