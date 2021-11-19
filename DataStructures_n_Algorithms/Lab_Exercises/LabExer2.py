@@ -1,9 +1,10 @@
 # Student: Junius Iosif R. Oblea
 # Program: BS Computer Engineering
-# Subject: CMPE 30052 Data Structures and Algorithms 
+# Subject: CMPE 30052 Data Structures and Algorithms
 # Laboratory Exercise No. 2
 
-from math import e, pi
+from math import pi
+
 
 def line():
     return "-----------------------"
@@ -17,6 +18,7 @@ def know_num_type(number: float) -> (int | float):
         return int(number)
     else:
         return float(number)
+
 
 def try_again():
     """
@@ -46,7 +48,7 @@ def basic_math_operations():
     def multiplication(num1: int, num2: int) -> int:
         return num1 * num2
 
-    def division(num1: int, num2: int): 
+    def division(num1: int, num2: int):
         try:
             return num1 / num2
         except ZeroDivisionError:
@@ -67,12 +69,12 @@ def basic_math_operations():
                 print("Undefined!")
             else:
                 print(f"The {result_name} is", round(know_num_type(fnctn(num[0], num[1])), 2))
-        except:
+        except Exception:
             print("Try again.")
 
     while True:
         print("\n***********************\nMENU\n***********************")
-        print("[A] - addition") 
+        print("[A] - addition")
         print("[S] - subtraction")
         print("[M] - multiplication")
         print("[D] - division")
@@ -113,7 +115,7 @@ def compute_area():
 
     def area_of_rectangle(length: float, width: float) -> float:
         return round(length * width, 2)
-    
+
     def area_of_triangle(base: float, height: float) -> float:
         return round((base * height) / 2, 2)
 
@@ -122,7 +124,7 @@ def compute_area():
 
     while True:
         print("\n***********************\nMENU\n***********************")
-        print("[1] - Area of square") 
+        print("[1] - Area of square")
         print("[2] - Area of rectangle")
         print("[3] - Area of triangle")
         print("[4] - Area of circle")
@@ -141,15 +143,15 @@ def compute_area():
             print("AREA OF SQUARE")
             print(line())
             try:
-                side = float(input("Enter the side of the square: "))
-                print(f"\nThe area is {area_of_square(side)} sq. units")
+                side_square = float(input("Enter the side of the square: "))
+                print(f"\nThe area is {area_of_square(side_square)} sq. units")
             except ValueError:
                 print("Try again. The program only accepts a number.")
 
         elif choice == "2":
             print("AREA OF RECTANGLE")
             print(line())
-            try: 
+            try:
                 len_wid = input("Enter the length and the width of the rectangle: ").split(" ")
                 if len(len_wid) != 2:
                     raise IndexError
@@ -160,7 +162,7 @@ def compute_area():
         elif choice == "3":
             print("AREA OF TRIANGLE")
             print(line())
-            try: 
+            try:
                 base_height = input("Enter the base and height of the triangle: ").split(" ")
                 if len(base_height) != 2:
                     raise IndexError
@@ -172,12 +174,12 @@ def compute_area():
             print("AREA OF CIRCLE")
             print(line())
             try:
-                radius = float(input("Enter the radius: "))
-                print(f"\nThe area is {area_of_circle(radius)} sq. units")
+                radius_circle = float(input("Enter the radius: "))
+                print(f"\nThe area is {area_of_circle(radius_circle)} sq. units")
             except ValueError:
                 print("Try again. The program only accepts a number.")
 
-        else: 
+        else:
             print("Choose only from the choices.")
 
 
@@ -199,10 +201,10 @@ def compute_factorial():
         try:
             num = int(input("\nEnter a number: "))
             print(f"The factorial of {num} is {find_factorial(num)}")
-        except Exception:
+        except ValueError:
             print("Only accepts an integer.")
-        
-        if try_again() == False:
+
+        if try_again() is False:
             break
 
 
@@ -220,7 +222,7 @@ def arithmetic_calculator():
     def multiplication(num1: float, num2: float) -> float:
         return num1 * num2
 
-    def division(num1: float, num2: float): 
+    def division(num1: float, num2: float):
         try:
             return round(num1 / num2, 2)
         except ZeroDivisionError:
@@ -241,14 +243,15 @@ def arithmetic_calculator():
             if fnctn == division and num[1] == 0:
                 print("Undefined!")
             else:
-                print(f"The {result_name} is:", round(know_num_type(fnctn(*num)), 2))   # uses splat operator to call elements in num
-        except:
+                print(f"The {result_name} is:",
+                      round(know_num_type(fnctn(*num)), 2))  # uses splat operator to call elements in num
+        except Exception:
             print("Try again.")
 
     while True:
         print("\nARITHMETIC CALCULATOR")
         print(line())
-        print("[1] - Addition") 
+        print("[1] - Addition")
         print("[2] - Subtraction")
         print("[3] - Multiplication")
         print("[4] - Division")
@@ -266,37 +269,36 @@ def arithmetic_calculator():
         else:
             print("Choose only from the choices.")
 
-        if try_again() == False:
+        if try_again() is False:
             break
 
 
 # Problem 5
 # Create a program that will overload a function named linechar that display a line of characters.
 
-def linechar(char = "*", amount = 20):
+def linechar(char="*", amount=20):
     print(char * amount)
 
 
 # Problem 6
-# Create a program that will ask the user to enter ten numbers and get the sum of all odd numbers. 
+# Create a program that will ask the user to enter ten numbers and get the sum of all odd numbers.
 # - The numbers will be stored in array
 # - The array value will be pass as argument to the function
 
 def sum_odd_numbers():
-
     # function that get the sum of odd numbers
     def sum_of_odds(num_list: list):
         result = 0
-        for i in num_list:
-            if i % 2 == 0:
+        for elem in num_list:
+            if elem % 2 == 0:
                 continue
-            elif (i + 1) % 2 == 0: 
-                result += i
-        
+            elif (elem + 1) % 2 == 0:
+                result += elem
+
         return result
 
     while True:
-        numbers = input("\nEnter 10 numbers: ").split(" ")    # asks user for 10 numbers
+        numbers = input("\nEnter 10 numbers: ").split(" ")  # asks user for 10 numbers
 
         # numbers will be stored in an array
         numbers_int = []
@@ -308,26 +310,29 @@ def sum_odd_numbers():
 
         print("The sum of all odd numbers is", sum_of_odds(numbers_int))
 
-        if try_again() == False:
+        if try_again() is False:
             break
 
+
 # Problem 7
-# Create a program that will add two numbers, three numbers and four numbers. Use function overloading named add. 
+# Create a program that will add two numbers, three numbers and four numbers. Use function overloading named add.
 # - Use two arguments for adding two numbers
 # - Use three arguments for adding three numbers
 # - Use array with size 4 for adding four numbers
 # - The function add will return the value of the sum of the numbers
 
-def add(num1 = 0, num2 = 0, num3 = 0, num4 = 0):
+def add(num1=0, num2=0, num3=0, num4=0):
     try:
         return num1 + num2 + num3 + num4
     except ValueError as e:
         print("error:", e)
 
+
 def get_and_display_add():
     """
     To get the input of users and display the results of add() function.
     """
+
     def convert_to_float(string_list: list):
         num_list = []
         for i in string_list:
@@ -346,7 +351,7 @@ def get_and_display_add():
             print(e)
 
         try:
-            three_num  = input("Enter three numbers: ").split(" ")
+            three_num = input("Enter three numbers: ").split(" ")
             three_list = convert_to_float(three_num)
             print("The sum is:", know_num_type(add(*three_list)))
         except Exception as e:
@@ -359,24 +364,25 @@ def get_and_display_add():
         except Exception as e:
             print(e)
 
-        if try_again() == False:
+        if try_again() is False:
             break
 
 
 # Problem 8
-# Create a program that will overload a function named substring. The function will ask the user to 
-# enter the index range of the substring inclusive. Using the function defined, the program will display the 
+# Create a program that will overload a function named substring. The function will ask the user to
+# enter the index range of the substring inclusive. Using the function defined, the program will display the
 # whole string value, the substring given the start index, and the substring given the start and last index.
 
-def substring(string: str, start = 0, end = None):
+def substring(string: str, start=0, end=None):
     print(string[start:end])
+
 
 def get_substring_value():
     while True:
         substring_list = input("\nOriginal string value:\n")
         print(f"String length: {len(substring_list)}")
-        
-        try: 
+
+        try:
             start_index = int(input("\nEnter start index: "))
             end_index = int(input("Enter end index: "))
 
@@ -392,7 +398,7 @@ def get_substring_value():
         except ValueError:
             print("The program only accepts integers.")
 
-        if try_again() == False:
+        if try_again() is False:
             break
 
 
@@ -408,7 +414,7 @@ def main():
     print("\nProblem 5\n")
     linechar()
     linechar("@")
-    linechar(amount = 10)
+    linechar(amount=10)
     linechar("#", 15)
     print("\nProblem 6")
     sum_odd_numbers()
