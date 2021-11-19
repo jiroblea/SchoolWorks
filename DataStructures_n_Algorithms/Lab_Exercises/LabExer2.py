@@ -4,7 +4,7 @@
 # Laboratory Exercise No. 2
 
 from math import pi
-
+from multipledispatch import dispatch
 
 def line():
     return "-----------------------"
@@ -276,7 +276,25 @@ def arithmetic_calculator():
 # Problem 5
 # Create a program that will overload a function named linechar that display a line of characters.
 
-def linechar(char="*", amount=20):
+# not the correct way of overloading:
+# def linechar(char="*", amount=20):
+#     print(char * amount)
+
+# the correct way of overloading using multipledispatch module
+@dispatch()
+def linechar():
+    print("*" * 20)
+
+@dispatch(str)
+def linechar(char):
+    print(char * 20)
+
+@dispatch(int)
+def linechar(amount):
+    print("*" * amount)
+
+@dispatch(str, int)
+def linechar(char, amount):
     print(char * amount)
 
 
@@ -414,7 +432,7 @@ def main():
     print("\nProblem 5\n")
     linechar()
     linechar("@")
-    linechar(amount=10)
+    linechar(10)
     linechar("#", 15)
     print("\nProblem 6")
     sum_odd_numbers()
