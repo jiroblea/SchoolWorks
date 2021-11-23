@@ -13,16 +13,9 @@ import os
 def search_string(file_path: str, list_of_string: str):
     # read each line of text file
     with open(file_path, "r") as file:
-        # txt_file_lines = file.readlines()   # a list of lines from text file
-
-        txt_file_word_list = []
-        for i in file.readlines():
+        txt_file_word_list = []     # a 2D array containing a list of words inside a list of lines of words
+        for i in file.readlines():  # a list of lines from text file
             txt_file_word_list.append(i.split(" "))
-
-    # create a list of words in each line
-    # txt_file_word_list = []     # a 2D array containing a list of words inside a list of lines of words
-    # for i in txt_file_lines:
-    #     txt_file_word_list.append(i.split(" "))
 
     searched_words = []
     for j in txt_file_word_list:    # scan the lines
@@ -44,13 +37,21 @@ def search_string(file_path: str, list_of_string: str):
     for elem in without_slash:
         if list_of_string in elem[0:len(list_of_string)]:
             string_at_front.append(elem)
-        elif list_of_string in elem[1:-1]:
+    for elem in without_slash:
+        if list_of_string in elem[1:-1]:
             string_at_mid.append(elem)
-        elif list_of_string in elem[-len(list_of_string):None]:
+    for elem in without_slash:
+        if list_of_string in elem[-len(list_of_string):None]:
             string_at_back.append(elem)
 
-    return len(searched_words), len(string_at_front), len(string_at_mid), len(string_at_back), string_at_front, \
-           string_at_mid, string_at_back
+    print("string at front: ")
+    print(string_at_front)
+    print("at middle: ")
+    print(string_at_mid)
+    print("at back: ")
+    print(string_at_back)
+
+    return len(searched_words), len(string_at_front), len(string_at_mid), len(string_at_back)
 
 
 def display_searched_string():
@@ -60,17 +61,22 @@ def display_searched_string():
             list_of_string = input("Enter the string you want to find: ")
 
             placement = 0
-            strings = ""
+            strings = list_of_string
             if "*" in list_of_string:
-                if "*" in (list_of_string[0] and list_of_string[-1]):   # list of string in the middle
-                    placement = 2
-                    strings = list_of_string[1:-1]
-                elif "*" in list_of_string[0]:    # list of string at the back
-                    placement = 3
-                    strings = list_of_string[1:]
-                elif "*" in list_of_string[-1]:     # list of string in front
+                # if "*" == (list_of_string[0] and list_of_string[-1]):  # list of string in the middle
+                #     placement = 2
+                #     strings = list_of_string[1:-1]
+                if "*" == list_of_string[0]:    # list of string at the back
+                    if "*" == list_of_string[-1]:  # list of string in front
+                        placement = 2
+                        strings = list_of_string[1:-1]
+                    else:
+                        placement = 3
+                        strings = list_of_string[1:]
+                elif "*" == list_of_string[-1]:     # list of string in front
                     placement = 1
-                    strings = list_of_string[0:-1]
+                    strings = list_of_string[:-1]
+            print(strings)
 
             print(f"Number of time(s) the string appears: {search_string(file_name, strings)[placement]}")
             if input("\nTry again (y/n)? ") == "n":
@@ -99,7 +105,7 @@ def search_file(directory_path: str):
 def main():
     print("Hello World!")
     display_searched_string()
-    print(search_file("C:/Users/jiroo"))
+    # print(search_file("C:/Users/jiroo/Desktop"))
 
 
 if __name__ == '__main__':
