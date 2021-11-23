@@ -68,8 +68,8 @@ def search_string(txt_file: str, string_to_find: str, placement_of_str: int):
 def display_searched_string():
     while True:
         try:
-            file_name = input("Enter the file name of the txt file: ")
-            str_to_find_w_asterisk = input("Enter the string you want to find: ")
+            file_name = input("\nEnter the file name of the txt file: ")
+            str_to_find_w_asterisk = input("Enter the string to find: ")
 
             placement = 0
             str_to_find_wo_astrsk = str_to_find_w_asterisk
@@ -90,7 +90,7 @@ def display_searched_string():
             if input("\nTry again (y/n)? ").lower() == "n":
                 break
 
-        except FileNotFoundError and OSError:
+        except FileNotFoundError or OSError:
             print("\nFile not found")
             if input("Try again (y/n)? ").lower() == "n":
                 break
@@ -104,14 +104,33 @@ def search_file(dir_to_search: str, file_to_search: str):
         for i in filenames:
             if i == file_to_search:
                 return dirpath
+    return False
+
+
+def display_search_file():
+    while True:
+        try:
+            be_search_upon = input("\nEnter a path directory or drive to be search upon: ")
+            file_name_to_find = input("Enter the file name to find: ")
+
+            file_name_path = search_file(be_search_upon, file_name_to_find)
+            if file_name_path is False:
+                print(f"The file '{file_name_to_find}' can't be found on '{be_search_upon}'")
             else:
-                return "File not found."
+                print(f"The file '{file_name_to_find}' is located in this path: {file_name_path}")
+
+            if input("\nTry again (y/n)? ").lower() == "n":
+                break
+
+        except FileNotFoundError or OSError:
+            print("\nFile not found")
+            if input("Try again (y/n)? ").lower() == "n":
+                break
 
 
 def main():
-    print("Hello World!")
     display_searched_string()
-    # print(search_file("C:/Users/jiroo/Desktop"))
+    display_search_file()
 
 
 if __name__ == '__main__':
