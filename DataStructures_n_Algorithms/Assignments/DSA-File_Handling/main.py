@@ -10,96 +10,102 @@ import os
 # *sdf* etc..) in a txt file and returns something such as # of times the string/strings appears
 
 
-def search_string(file_path: str, list_of_string: str):
+def search_string(txt_file: str, string_to_find: str, placement_of_str: int):
     # read each line of text file
-    with open(file_path, "r") as file:
+    with open(txt_file, "r") as file:
         txt_file_word_list = []     # a 2D array containing a list of words inside a list of lines of words
-        for i in file.readlines():  # a list of lines from text file
-            txt_file_word_list.append(i.split(" "))
+        for line in file:
+            txt_file_word_list.append(line.split(" "))
 
-    searched_words = []
-    for j in txt_file_word_list:    # scan the lines
-        for k in j:                 # scan the words in each line
-            if list_of_string in k:
-                searched_words.append(k)
+    words_with_str_to_find = []
+    for lines in txt_file_word_list:    # scan the lines
+        for words in lines:             # scan the words in each line
+            if string_to_find in words:
+                words_with_str_to_find.append(words)
 
+    # remove the "\n" from the end of the words
     without_slash = []
-    for el in searched_words:
-        if "\n" in el:
-            without_slash.append(el[0:-1])
+    for word_char in words_with_str_to_find:
+        if "\n" in word_char:
+            without_slash.append(word_char[0:-1])
         else:
-            without_slash.append(el)
-    print(without_slash)
+            without_slash.append(word_char)
 
     string_at_front = []
     string_at_back = []
     string_at_mid = []
-    for elem in without_slash:
-        if list_of_string in elem[0:len(list_of_string)]:
-            string_at_front.append(elem)
-    for elem in without_slash:
-        if list_of_string in elem[1:-1]:
-            string_at_mid.append(elem)
-    for elem in without_slash:
-        if list_of_string in elem[-len(list_of_string):None]:
-            string_at_back.append(elem)
+    if placement_of_str == 0:
+        return len(without_slash)
 
-    print("string at front: ")
-    print(string_at_front)
-    print("at middle: ")
-    print(string_at_mid)
-    print("at back: ")
-    print(string_at_back)
+    elif placement_of_str == 1:
+        for elem in without_slash:
+            if string_to_find in elem[:len(string_to_find)]:
+                string_at_front.append(elem)
+        return len(string_at_front)
 
-    return len(searched_words), len(string_at_front), len(string_at_mid), len(string_at_back)
+    elif placement_of_str == 2:
+        for elem in without_slash:
+            if string_to_find in elem[1:-1]:
+                string_at_mid.append(elem)
+        return len(string_at_mid)
+
+    elif placement_of_str == 3:
+        for elem in without_slash:
+            if string_to_find in elem[-len(string_to_find):]:
+                string_at_back.append(elem)
+        return len(string_at_back)
+
+    # print("string at front: ")
+    # print(string_at_front)
+    # print("at middle: ")
+    # print(string_at_mid)
+    # print("at back: ")
+    # print(string_at_back)
+    #
+    # return len(without_slash), len(string_at_front), len(string_at_mid), len(string_at_back)
 
 
 def display_searched_string():
     while True:
         try:
-            file_name = input("Insert the path of the text file: ")
-            list_of_string = input("Enter the string you want to find: ")
+            file_name = input("Enter the file name of the txt file: ")
+            str_to_find_w_asterisk = input("Enter the string you want to find: ")
 
             placement = 0
-            strings = list_of_string
-            if "*" in list_of_string:
-                # if "*" == (list_of_string[0] and list_of_string[-1]):  # list of string in the middle
-                #     placement = 2
-                #     strings = list_of_string[1:-1]
-                if "*" == list_of_string[0]:    # list of string at the back
-                    if "*" == list_of_string[-1]:  # list of string in front
+            str_to_find_wo_astrsk = str_to_find_w_asterisk
+            if "*" in str_to_find_w_asterisk:
+                if "*" == str_to_find_w_asterisk[0]:    # str_to_find is at the back
+                    if "*" == str_to_find_w_asterisk[-1]:  # str_to_find is in the middle
                         placement = 2
-                        strings = list_of_string[1:-1]
+                        str_to_find_wo_astrsk = str_to_find_w_asterisk[1:-1]
                     else:
                         placement = 3
-                        strings = list_of_string[1:]
-                elif "*" == list_of_string[-1]:     # list of string in front
+                        str_to_find_wo_astrsk = str_to_find_w_asterisk[1:]
+                elif "*" == str_to_find_w_asterisk[-1]:     # str_to_find is in front
                     placement = 1
-                    strings = list_of_string[:-1]
-            print(strings)
+                    str_to_find_wo_astrsk = str_to_find_w_asterisk[:-1]
 
-            print(f"Number of time(s) the string appears: {search_string(file_name, strings)[placement]}")
-            if input("\nTry again (y/n)? ") == "n":
+            num_of_occurrence = search_string(file_name, str_to_find_wo_astrsk, placement)
+            print(f"Number of times the string(s) appears: {num_of_occurrence}")
+            if input("\nTry again (y/n)? ").lower() == "n":
                 break
 
         except FileNotFoundError and OSError:
             print("\nFile not found")
-            if input("Try again (y/n)? ") == "n":
+            if input("Try again (y/n)? ").lower() == "n":
                 break
 
 
 # Problem 2
 # A python program that will search file from a directory or entire drive
 
-def search_file(directory_path: str):
-    for (dirpath, dirnames, filenames) in os.walk(directory_path, topdown=True):
-        # print(dirpath)
-        # print(dirnames)
-        # print(filenames)
-        # print('--------------------------------')
+def search_file(dir_to_search: str, file_to_search: str):
+    for (dirpath, dirnames, filenames) in os.walk(dir_to_search, topdown=True):
         for i in filenames:
-            if i == "Anime.txt":
+            if i == file_to_search:
                 return dirpath
+            else:
+                return "File not found."
 
 
 def main():
