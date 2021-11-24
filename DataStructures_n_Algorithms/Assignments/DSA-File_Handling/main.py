@@ -12,7 +12,7 @@ import os
 
 def search_string(txt_file: str, string_to_find: str, placement_of_str: int):
     # read each line of text file
-    with open(txt_file, "r") as file:
+    with open(txt_file, "r", encoding="utf8") as file:
         txt_file_word_list = []     # a 2D array containing a list of words inside a list of lines of words
         for line in file:
             txt_file_word_list.append(line.split(" "))
@@ -35,34 +35,25 @@ def search_string(txt_file: str, string_to_find: str, placement_of_str: int):
     string_at_back = []
     string_at_mid = []
     if placement_of_str == 0:
-        return len(without_slash)
+        return len(without_slash), without_slash
 
     elif placement_of_str == 1:
         for elem in without_slash:
             if string_to_find in elem[:len(string_to_find)]:
                 string_at_front.append(elem)
-        return len(string_at_front)
+        return len(string_at_front), string_at_front
 
     elif placement_of_str == 2:
         for elem in without_slash:
             if string_to_find in elem[1:-1]:
                 string_at_mid.append(elem)
-        return len(string_at_mid)
+        return len(string_at_mid), string_at_mid
 
     elif placement_of_str == 3:
         for elem in without_slash:
             if string_to_find in elem[-len(string_to_find):]:
                 string_at_back.append(elem)
-        return len(string_at_back)
-
-    # print("string at front: ")
-    # print(string_at_front)
-    # print("at middle: ")
-    # print(string_at_mid)
-    # print("at back: ")
-    # print(string_at_back)
-    #
-    # return len(without_slash), len(string_at_front), len(string_at_mid), len(string_at_back)
+        return len(string_at_back), string_at_back
 
 
 def display_searched_string():
@@ -86,7 +77,12 @@ def display_searched_string():
                     str_to_find_wo_astrsk = str_to_find_w_asterisk[:-1]
 
             num_of_occurrence = search_string(file_name, str_to_find_wo_astrsk, placement)
-            print(f"Number of times the string(s) appears: {num_of_occurrence}")
+            print(f"Number of times the string(s) appears: {num_of_occurrence[0]}")
+            if input("Do you want to see those occurrences (y/n)? ").lower() == "y":
+                print(num_of_occurrence[1])
+            else:
+                print(" ")
+
             if input("\nTry again (y/n)? ").lower() == "n":
                 break
 
@@ -110,12 +106,13 @@ def search_file(dir_to_search: str, file_to_search: str):
 def display_search_file():
     while True:
         try:
-            be_search_upon = input("\nEnter a path directory or drive to be search upon: ")
+            be_search_upon = input("\nEnter a path directory or drive to be search upon (e.g.: C:/): ")
             file_name_to_find = input("Enter the file name to find: ")
 
             file_name_path = search_file(be_search_upon, file_name_to_find)
             if file_name_path is False:
-                print(f"The file '{file_name_to_find}' can't be found on '{be_search_upon}'")
+                print(f"The program is unable to find the file '{file_name_to_find}' on '{be_search_upon}'")
+                raise FileNotFoundError
             else:
                 print(f"The file '{file_name_to_find}' is located in this path: {file_name_path}")
 
@@ -123,7 +120,7 @@ def display_search_file():
                 break
 
         except FileNotFoundError or OSError:
-            print("\nFile not found")
+            print("\nPath or file not found")
             if input("Try again (y/n)? ").lower() == "n":
                 break
 
