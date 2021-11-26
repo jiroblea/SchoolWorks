@@ -64,9 +64,9 @@ def display_strcmp():
 # Problem 2
 # Convert the predefined function strcpy() to user defined function. 
 
-def strcpy(destination: str, source: str):
-    destination = source
-    return destination
+def strcpy(cpy_destination: str, cpy_source: str):
+    cpy_destination = cpy_source
+    return cpy_destination
 
 
 def display_strcpy():
@@ -82,9 +82,31 @@ def display_strcpy():
             break
 
 
+# Problem 3
+# Convert the predefined function strcat() to user defined function. 
+
+def strcat(cat_destination: str, cat_source: str):
+    return cat_destination + cat_source
+
+
+def display_strcat():
+    while True:
+        linechar()
+        print("STRING CONCATENATION")
+        linechar()
+        
+        cat_words = ask_two_words()
+        print("concatenated value: " + strcat(cat_words[0], cat_words[1]))
+
+        if try_again() is False:
+            break
+
+
+
 def main():
     display_strcmp()
     display_strcpy()
+    display_strcat()
 
 
 if __name__ == "__main__":
