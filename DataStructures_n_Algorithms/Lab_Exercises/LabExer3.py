@@ -86,6 +86,7 @@ def display_strcpy():
 # Convert the predefined function strcat() to user defined function. 
 
 def strcat(cat_destination: str, cat_source: str):
+    """Return the concatenated strings."""
     return cat_destination + cat_source
 
 
@@ -102,11 +103,59 @@ def display_strcat():
             break
 
 
+# Problem 4
+# Convert a program that will determine if the given word input is a palindrome. 
+# The program will trim the trailing spaces of the given word.
+# HINT: Create a user defined function for getting the length of the string and 
+# a string trim function for eliminating trailing white spaces.
+
+def string_length():
+    pass
+
+
+def elim_whitespace(word_w_whitespace):
+    pass    
+
+
+def check_palindrome(check_string: str):
+    
+    word = check_string.lower()     # lower all characters (capitalized character(s) will be considered)
+    word = word.replace(" ", "")    # remove spaces between characters
+
+    # check the word if palindrome using indexing
+    mirrored_characters = 0
+    for i in range(len(word)):
+        if word[i] == word[-(i+1)]:
+            mirrored_characters += 1    # count the number of correct mirrored characters
+
+    if mirrored_characters == len(word):
+        return True
+    else:
+        return False
+
+
+def display_palindrome():
+    while True:
+        linechar()
+        print("PALINDROME")
+        linechar()
+
+        check_word = input("Enter a word: ")
+
+        if check_palindrome(check_word) is True:
+            print(f"{check_word} is a palindrome")
+        elif check_palindrome(check_word) is False:
+            print(f"{check_word} is not a palindrome")
+        
+        if try_again() is False:
+            break
+
 
 def main():
     display_strcmp()
     display_strcpy()
     display_strcat()
+    display_palindrome()
 
 
 if __name__ == "__main__":
