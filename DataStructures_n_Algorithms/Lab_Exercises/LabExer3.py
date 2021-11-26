@@ -8,13 +8,34 @@ def linechar():
     print("*" * 20)
 
 
+def try_again():
+    """
+    Ask the user if they want to try again the program inside the while loop.
+    """
+    if input("\nTry again (y/n): ").lower() == "n":
+        print(" ")
+        return False
+    else:
+        print(" ")
+        return True
+
+
+def ask_two_words():
+    """
+    Ask the user two words.
+    Returns a tuple containing the first word and the second word inputted.
+    """
+    first_word = input("Enter a first word (str1): ")
+    second_word = input("Enter a second word (str2): ")
+    return first_word, second_word
+
+
 # Problem 1
 # Convert the predefined function strcmp() to user defined function. 
 # Note: strcmp() returns three values based on the lexicographical order of the characters based on the ASCII table
 
 
 def strcmp(string1: str, string2: str) -> str:
-
     index = 0
     for k in string1:
         if k == string2[index]:
@@ -32,20 +53,38 @@ def display_strcmp():
         linechar()
         print("STRING COMPARE")
         linechar()
-        first_word = input("Enter a first word (str1): ")
-        second_word = input("Enter a second word (str2): ")
-        print(strcmp(first_word, second_word))
 
-        if input("\nTry again (y/n): ").lower() == "n":
-            print(" ")
+        cmp_words = ask_two_words()
+        print(strcmp(cmp_words[0], cmp_words[1]))
+
+        if try_again() is False:
             break
-        else:
-            print(" ")
+
+
+# Problem 2
+# Convert the predefined function strcpy() to user defined function. 
+
+def strcpy(destination: str, source: str):
+    destination = source
+    return destination
+
+
+def display_strcpy():
+    while True:
+        linechar()
+        print("STRING COPY")
+        linechar()
         
+        cpy_words = ask_two_words()
+        print("new string value for str1: " + strcpy(cpy_words[0], cpy_words[1]))
+
+        if try_again() is False:
+            break
 
 
 def main():
     display_strcmp()
+    display_strcpy()
 
 
 if __name__ == "__main__":
