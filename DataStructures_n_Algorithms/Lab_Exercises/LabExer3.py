@@ -41,9 +41,9 @@ def strcmp(string1: str, string2: str) -> str:
         if k == string2[index]:
             index += 1
         else:
-            if ord(k) - ord(string2[index]) < 0 :
+            if ord(k) - ord(string2[index]) < 0:
                 return "negative"
-            elif ord(k) - ord(string2[index]) > 0 :
+            elif ord(k) - ord(string2[index]) > 0:
                 return "positive"
     return "equal"
 
@@ -75,8 +75,11 @@ def display_strcpy():
         print("STRING COPY")
         linechar()
         
-        cpy_words = ask_two_words()
-        print("new string value for str1: " + strcpy(cpy_words[0], cpy_words[1]))
+        cpy_first_word = input("Enter a first word (str1): ")
+        cpy_second_word = input("Enter a second word (str2): ")
+
+        cpy_first_word = strcpy(cpy_first_word, cpy_second_word)
+        print("new string value for str1: " + cpy_first_word)
 
         if try_again() is False:
             break
@@ -109,26 +112,23 @@ def display_strcat():
 # HINT: Create a user defined function for getting the length of the string and 
 # a string trim function for eliminating trailing white spaces.
 
-def string_length():
-    pass
 
+def elim_whitespace(string_w_whitespace):
+    word_list = string_w_whitespace.split()
 
-def elim_whitespace(word_w_whitespace):
-    pass    
+    string_wo_whitespace = ""
+    for i in word_list:
+        string_wo_whitespace += i + " "
+
+    return string_wo_whitespace
 
 
 def check_palindrome(check_string: str):
-    
     word = check_string.lower()     # lower all characters (capitalized character(s) will be considered)
     word = word.replace(" ", "")    # remove spaces between characters
 
-    # check the word if palindrome using indexing
-    mirrored_characters = 0
-    for i in range(len(word)):
-        if word[i] == word[-(i+1)]:
-            mirrored_characters += 1    # count the number of correct mirrored characters
-
-    if mirrored_characters == len(word):
+    # check the word if palindrome using slicing
+    if word == word[::-1]:
         return True
     else:
         return False
@@ -141,11 +141,12 @@ def display_palindrome():
         linechar()
 
         check_word = input("Enter a word: ")
+        string_wo_whtspc = elim_whitespace(check_word)
 
         if check_palindrome(check_word) is True:
-            print(f"{check_word} is a palindrome")
+            print(string_wo_whtspc + "is a palindrome")
         elif check_palindrome(check_word) is False:
-            print(f"{check_word} is not a palindrome")
+            print(string_wo_whtspc + "is not a palindrome")
         
         if try_again() is False:
             break
