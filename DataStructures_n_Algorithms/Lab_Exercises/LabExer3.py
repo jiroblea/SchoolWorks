@@ -152,11 +152,37 @@ def display_palindrome():
             break
 
 
+# Problem 5
+# Create a program that will capitalize each word from the string input.
+
+def capitalize_first_letter(word_phrase: str):
+    word_phrase_lower = word_phrase.lower()
+    word_phrase_list = word_phrase_lower.split()
+
+    for i in word_phrase_list:
+        for j in i:
+            j.replace(j[0], j.upper())
+
+    word_phrase_join = " ".join(word_phrase)
+    return word_phrase_join
+
+
+def display_capitalize_first_letter():
+    while True:
+        strings_to_cap = input("Enter some string: ")
+
+        print(capitalize_first_letter(strings_to_cap))
+
+        if try_again() is False:
+            break
+
+
 def main():
-    display_strcmp()
-    display_strcpy()
-    display_strcat()
-    display_palindrome()
+    # display_strcmp()
+    # display_strcpy()
+    # display_strcat()
+    # display_palindrome()
+    display_capitalize_first_letter()
 
 
 if __name__ == "__main__":
