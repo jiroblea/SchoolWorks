@@ -108,6 +108,7 @@ def display_search_file():
         try:
             be_search_upon = input("\nEnter a path directory or drive to be search upon (e.g.: C:/): ")
             file_name_to_find = input("Enter the file name to find: ")
+            print("The program is looking for the file, this might take a while...")
 
             file_name_path = search_file(be_search_upon, file_name_to_find)
             if file_name_path is False:
