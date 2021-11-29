@@ -159,12 +159,11 @@ def capitalize_first_letter(word_phrase: str):
     word_phrase_lower = word_phrase.lower()
     word_phrase_list = word_phrase_lower.split()
 
+    cap_first_letter = ""
     for i in word_phrase_list:
-        for j in i:
-            j.replace(j[0], j.upper())
+        cap_first_letter += i.capitalize() + " "
 
-    word_phrase_join = " ".join(word_phrase)
-    return word_phrase_join
+    return cap_first_letter
 
 
 def display_capitalize_first_letter():
@@ -178,10 +177,15 @@ def display_capitalize_first_letter():
 
 
 def main():
-    # display_strcmp()
-    # display_strcpy()
-    # display_strcat()
-    # display_palindrome()
+    print("Problem 1")
+    display_strcmp()
+    print("\nProblem 2")
+    display_strcpy()
+    print("\nProblem 3")
+    display_strcat()
+    print("\nProblem 4")
+    display_palindrome()
+    print("\nProblem 5")
     display_capitalize_first_letter()
 
 
