@@ -6,10 +6,10 @@
 # Problem 1
 # Create a programmer defined function that will do the same as strcpy function.
 
-def strcpy(destination_cpy: str, source_cpy: str) -> str:
+def strcpy(destination_cpy, source_cpy):
     destination_cpy = source_cpy
     return destination_cpy
-	
+
 
 # Problem 2
 # Create a programmer defined function that will do the same as strcmp function.
@@ -42,18 +42,33 @@ def strcat(destination_cat: str, source_cat: str) -> str:
 # Problem 5
 # Create a program that will return a reverse string using pointer.
 
+def reverse_string(characters: str) -> str:
+    chars = []
+    for i in range(len(characters)):
+        chars.append(characters[i - (len(characters) - 1)])
+    
+    return "".join(chars)
+
 
 def main():
-    yo1 = "hello"
+    yo1 = " "
     yo2 = "wazzup"
-    yo1 = strcpy(yo1, yo2)
-	
-    print(f"yo1: {yo1}\nyo2: {yo2}")  # dapat pag ginamit ang yo1 ay yo2 na
+    print(f"yo1: {yo1}\nyo2: {yo2}")
+
+    strcpy(yo1, yo2)
+    print(f"\nyo1: {yo1}\nyo2: {yo2}")  # dapat pag ginamit ang yo1 ay yo2 na
+
+    yo1 = yo2
+    print(f"\nyo1: {yo1}\nyo2: {yo2}")
+
+    
 	
     print(strcmp(yo1, yo2))
     print(strcmp("hello", "Hello"))
     print(strcmp("Hello", "hello"))
 
     print(strcat(yo1, yo2))
+
+    print(reverse_string("Hello"))
 	
 main()
