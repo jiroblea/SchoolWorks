@@ -38,6 +38,12 @@ def strcat(destination_cat: str, source_cat: str) -> str:
 # Problem 4
 # Create a programmer defined function that will do the same as strlen function.
 
+def strlen(string) -> int:
+    length = 0
+    for k in string:
+        length += 1
+    return length
+
 
 # Problem 5
 # Create a program that will return a reverse string using pointer.
@@ -46,7 +52,6 @@ def reverse_string(characters: str) -> str:
     chars = []
     for i in range(len(characters)):
         chars.append(characters[i - (len(characters) - 1)])
-    
     return "".join(chars)
 
 
@@ -69,6 +74,7 @@ def main():
 
     print(strcat(yo1, yo2))
 
+    print(strlen("Hello"))
     print(reverse_string("Hello"))
 	
 main()
