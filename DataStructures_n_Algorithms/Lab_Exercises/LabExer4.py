@@ -53,28 +53,3 @@ def reverse_string(characters: str) -> str:
     for i in range(len(characters)):
         chars.append(characters[i - (len(characters) - 1)])
     return "".join(chars)
-
-
-def main():
-    yo1 = " "
-    yo2 = "wazzup"
-    print(f"yo1: {yo1}\nyo2: {yo2}")
-
-    strcpy(yo1, yo2)
-    print(f"\nyo1: {yo1}\nyo2: {yo2}")  # dapat pag ginamit ang yo1 ay yo2 na
-
-    yo1 = yo2
-    print(f"\nyo1: {yo1}\nyo2: {yo2}")
-
-    
-	
-    print(strcmp(yo1, yo2))
-    print(strcmp("hello", "Hello"))
-    print(strcmp("Hello", "hello"))
-
-    print(strcat(yo1, yo2))
-
-    print(strlen("Hello"))
-    print(reverse_string("Hello"))
-	
-main()
