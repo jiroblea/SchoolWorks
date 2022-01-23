@@ -3,7 +3,6 @@
 # Subject: CMPE 30052 Data Structures and Algorithms
 # Laboratory Exercise No. 5
 
-import re
 from tabulate import tabulate
 
 def try_again():
@@ -43,7 +42,7 @@ def student_record():
                 student_quiz3 = float(input("Quiz 3: "))
                 break
             except ValueError:
-                print("Error: Please enter a number only.")
+                print("Error: Please enter a grade only.")
 
         return student_id, student_name, student_quiz1, student_quiz2, student_quiz3
 
@@ -124,11 +123,13 @@ def five_student_record():
                     student_3_quizzes_str = input("Enter 3 quiz(zes): ").split()
                     for i in student_3_quizzes_str:
                         student_3_quizzes_float.append(float(i))
+
+                    student_grade = quiz_average_grade(student_3_quizzes_float[0], student_3_quizzes_float[1], student_3_quizzes_float[2])
                     break
                 except ValueError:
-                    print("Error: Please enter a number only.")
-        
-            student_grade = quiz_average_grade(student_3_quizzes_float[0], student_3_quizzes_float[1], student_3_quizzes_float[2])
+                    print("Error: Please enter 3 grades only.")
+                except IndexError:
+                    print("Error: Please enter 3 grades only.")
 
             student_id_list.append(student_id)
             student_name_list.append(student_name)
