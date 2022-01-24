@@ -168,16 +168,123 @@ def five_student_record():
 # Create a program that will give an output as shown on figure A.The program will ask to input three
 # customers information. Each customer have three items purchased. 
 
+def customer_information():
+    """
+    Program for problem 3. 
+    """
+    # TODO: create a function to calculate total price and display the customer information
+
+    def item_information(item_id: int):
+        """
+        Contain the items - ID as key and value are list of their name and price.
+        Accepts an int argument as ID.
+        Return a tuple containing the name and price.
+        """
+        items = {
+            1: ["Apple", 13], 
+            2: ["Orange", 15], 
+            3: ["Banana", 7],
+            4: ["Ponkan", 5],
+            5: ["Guava", 20],
+            6: ["Longan", 2],
+            7: ["Pear", 8]
+        }
+
+        return items[item_id][0], items[item_id][1]
+
+
+    def ask_customer_information():
+        """
+        Asks the user to enter 3 customer information.
+        """
+        # lists of customer information
+        customer_name_list = []
+        customer_contact_no_list = []
+        customer_order_date_list = []
+        customer_item_id_list = []
+        customer_item_quantity_list = []
+
+        print("Enter 3 customers")
+        for i in range(1,4):
+            print(f"\nCUSTOMER INFORMATION {i}")
+            first_name = input("First Name: ")
+            last_name = input("Last Name: ")
+            contact_no = input("Contact No: ")
+
+            # for managing customer's name
+            customer_name = f"{last_name}, {first_name}"
+            
+            # for managing the order date - checking if the date is valid
+            print("Order Date: ")
+            while True:
+                try:
+                    order_day = int(input("Day: "))
+                    if order_day < 1 or order_day > 31:
+                        raise IndexError
+                    order_month = int(input("Month: "))
+                    if order_month < 1 or order_month > 12:
+                        raise IndexError
+                    order_year = int(input("Year: "))
+                    break
+                except ValueError:
+                    print("Error: Please enter an integer value only.")
+                except IndexError:
+                    print("Error: Please enter a valid date.")
+            order_date = f"{order_month}/{order_day}/{order_year}"
+
+            # for managing the 3 items
+            item_id_list = []
+            item_id_quantity = []
+
+            print("Enter 3 items")
+            for _ in range(3):
+                while True: 
+                    try: 
+                        item_id = int(input("ID: "))
+                        if item_id > 7:  # change the value depending on the number of items that can be bought
+                            raise IndexError
+                        item_desc = item_information(item_id)
+                        print(f"Name: {item_desc[0]}\n Price: {item_desc[1]}")
+                        item_quantity = int(input("Quantity: "))
+                        break
+                    except ValueError:
+                        print("Error: Please enter an integer value only.")
+                    except IndexError:
+                        print("Error: Please enter a valid value.")
+                
+                item_id_list.append(item_id)
+                item_id_quantity.append(item_quantity)     
+
+            customer_name_list.append(customer_name)
+            customer_contact_no_list.append(contact_no)
+            customer_order_date_list.append(order_date)
+            customer_item_id_list.append(item_id_list)
+            customer_item_quantity_list.append(item_id_quantity)
+
+        return customer_name_list, customer_contact_no_list, customer_order_date_list, customer_item_id_list, customer_item_quantity_list
+
+
+    def display_customer_information():
+        pass
+    
+
+    ask_customer_information()
+    
+    return None
+
 
 def main():
     # Problem 1
     while True:
-        student_record()
+        # student_record()
         if try_again() is False:
             break
 
     # Problem 2
-    five_student_record()
+    # five_student_record()
+
+    # Problem 3
+    customer_information()
 
 if __name__ == "__main__":
     main()
