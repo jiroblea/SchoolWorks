@@ -244,7 +244,7 @@ def customer_information():
                         if item_id > 7:  # change the value depending on the number of items that can be bought
                             raise IndexError
                         item_desc = item_information(item_id)
-                        print(f"Name: {item_desc[0]}\n Price: {item_desc[1]}")
+                        print(f"Name: {item_desc[0]} \nPrice: {item_desc[1]}")
                         item_quantity = int(input("Quantity: "))
                         break
                     except ValueError:
@@ -261,27 +261,77 @@ def customer_information():
             customer_item_id_list.append(item_id_list)
             customer_item_quantity_list.append(item_id_quantity)
 
-        return customer_name_list, customer_contact_no_list, customer_order_date_list, customer_item_id_list, customer_item_quantity_list
+        return (customer_name_list, customer_contact_no_list, customer_order_date_list, 
+                customer_item_id_list, customer_item_quantity_list)
 
 
-    def display_customer_information():
-        pass
-    
+    def display_customer_information(customer_name_list, customer_order_date_list, 
+                                    customer_item_id_list, customer_item_quantity_list):
+        """
+        Display customer information.
+        """
 
-    ask_customer_information()
-    
+        item_name_list = []
+        item_price_list = []
+        for i in customer_item_id_list:
+            for j in i:
+                item_desc = item_information(j)
+                item_name_list.append(item_desc[0])
+                item_price_list.append(item_desc[1])
+
+        # for lists of item quantity
+        item_quantity_list = []
+        for k in customer_item_quantity_list:
+            for l in k:
+                item_quantity_list.append(l)
+
+        total_price = []
+        for m in range(9):
+            total_price.append(item_price_list[m] * item_quantity_list[m])
+
+
+        record = {"#": [1, None, None, None, None, 
+                        2, None, None, None, None, 
+                        3],
+                "Customer Name": [customer_name_list[0], None, None, None, None, 
+                                customer_name_list[1], None, None, None, None, 
+                                customer_name_list[2]],
+                "Order Date": [customer_order_date_list[0], None, None, None, None, 
+                                customer_order_date_list[1], None, None, None, None, 
+                                customer_order_date_list[2]], 
+                "Items": [None, item_name_list[0], item_name_list[1], item_name_list[2], "TOTAL PRICE: ",
+                        None, item_name_list[3], item_name_list[4], item_name_list[5], "TOTAL PRICE: ",
+                        None, item_name_list[6], item_name_list[7], item_name_list[8], "TOTAL PRICE: ",], 
+                "Price": [None, float(item_price_list[0]), float(item_price_list[1]), float(item_price_list[2]), None,
+                        None, float(item_price_list[3]), float(item_price_list[4]), float(item_price_list[5]), None, 
+                        None, float(item_price_list[6]), float(item_price_list[7]), float(item_price_list[8]), None],
+                "Quantity": [None, customer_item_quantity_list[0][0], customer_item_quantity_list[0][1], customer_item_quantity_list[0][2],
+                            float(total_price[0] + total_price[1] + total_price[2]), 
+                            None, customer_item_quantity_list[1][0], customer_item_quantity_list[1][1], customer_item_quantity_list[1][2],
+                            float(total_price[3] + total_price[4] + total_price[5]),
+                            None, customer_item_quantity_list[2][0], customer_item_quantity_list[2][1], customer_item_quantity_list[2][2],
+                            float(total_price[6] + total_price[7] + total_price[8])]
+        }
+
+        print("\nSUMMARY REPORT")
+        print(tabulate(record, headers="keys", tablefmt="plain", stralign="right", numalign="right"))
+        return None
+
+    customer_info = ask_customer_information()
+    display_customer_information(customer_info[0], customer_info[2], customer_info[3], customer_info[4])
     return None
+
 
 
 def main():
     # Problem 1
     while True:
-        # student_record()
+        student_record()
         if try_again() is False:
             break
 
     # Problem 2
-    # five_student_record()
+    five_student_record()
 
     # Problem 3
     customer_information()
